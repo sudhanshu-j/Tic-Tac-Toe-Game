@@ -54,7 +54,7 @@ Code Highlights
 The HTML structure consists of a simple flex layout for the Tic-Tac-Toe board:
 
  <!-- Board -->
-  <div id="board">
+    <div id="board">
         <!-- Game Box -->
         <div class="box box-0" id="0"></div>
         <div class="box box-1" id="1"></div>
@@ -66,50 +66,50 @@ The HTML structure consists of a simple flex layout for the Tic-Tac-Toe board:
         <div class="box box-7" id="7"></div>
         <div class="box box-8" id="8"></div>
       </div>
- </div>
+    </div>
 
 • CSS
 The CSS styles the grid and handles the visual appearance of the game:
 
- #board {
-  width: 450px;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 95px;
-}
+    #board {
+      width: 450px;
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 95px;
+    }
 
-.box {
-  height: 150px;
-  width: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 120px;
-  border-right: 2px solid #8bc6ec;
-  border-bottom: 2px solid #8bc6ec;
-  font-family: "Kalnia Glaze", serif;
-  cursor: pointer;
-}
+    .box {
+      height: 150px;
+      width: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 120px;
+      border-right: 2px solid #8bc6ec;
+      border-bottom: 2px solid #8bc6ec;
+      font-family: "Kalnia Glaze", serif;
+      cursor: pointer;
+    }
 
 • JavaScript
 The JavaScript handles the game logic and checks for winning conditions:
 
-let boxes = Array.from(document.getElementsByClassName("box"));
+    let boxes = Array.from(document.getElementsByClassName("box"));
 
-let currentPlayer = O_letter;
+    let currentPlayer = O_letter;
 
-const startGame = () => {
-  boxes.forEach((box) => box.addEventListener("click", boxClicked));
-};
+    const startGame = () => {
+      boxes.forEach((box) => box.addEventListener("click", boxClicked));
+    };
 
-function boxClicked(e) {
-  const id = e.target.id;
+    function boxClicked(e) {
+     const id = e.target.id;
 
-  if (spaces[id] === null) {
-    spaces[id] = currentPlayer;
-    e.target.innerText = currentPlayer;
+    if (spaces[id] === null) {
+      spaces[id] = currentPlayer;
+      e.target.innerText = currentPlayer;
 
-  if (checkWin()) {
+    if (checkWin()) {
       alert(`Player ${currentPlayer} wins!`);
       resetGame();
     } else if (checkDraw()) {
@@ -117,9 +117,9 @@ function boxClicked(e) {
       resetGame();
     } else {
       currentPlayer = currentPlayer === O_letter ? X_letter : O_letter;
+       }
+      }
     }
-  }
-}
 
 Setup Instructions:
 
